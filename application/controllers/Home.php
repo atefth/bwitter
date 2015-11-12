@@ -30,7 +30,7 @@ class Home extends CI_Controller {
 		// TODO
 		// Insert Form Data into DB
 		// HINT
-		// Access Form Data from the globally accessible $POST_DATA
+		// Access Form Data from the globally accessible $_POST
 		redirect('home','refresh');
 	}
 }
