@@ -12,12 +12,9 @@ class Home extends CI_Controller {
 		$navigation_data = array(
 			'page' => 'home'
 			);
-			// TODO
-			// Query DB for all bweets
+		$bweets = $this->db->query('select * from bweets')->result();
 		$home_data = array(
-			// TODO
-			// Replace empty array with results
-			'bweets' => array()
+			'bweets' => $bweets
 			);
 		$this->load->view('commons/header', $header_data);
 		$this->load->view('commons/navigation', $navigation_data);
@@ -27,10 +24,12 @@ class Home extends CI_Controller {
 
 	public function create()
 	{
-		// TODO
-		// Insert Form Data into DB
-		// HINT
-		// Access Form Data from the globally accessible $POST_DATA
-		redirect('home','refresh');
+		$this->load->database();
+		$this->load->helper('url');
+		$bweet = $_POST['bweet'];
+		$email = $_POST['email'];
+		$time = time();
+		$this->db->query("insert into bweets (bweet, email, created) values ('$bweet', '$email', '$time')");
+		redirect('home');
 	}
 }

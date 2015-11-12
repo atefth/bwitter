@@ -3,16 +3,27 @@
 		<div class="page-header">
 			<h1><small>Local</small> Bweets</h1>
             <hr>
-            <!-- TODO -->
-            <!-- Create Markup for form to input bweet -->
-            <!-- Must have field for email -->
-            <!-- Must have field for text of bweet -->
-            <!-- Must have submit button -->
-            <!-- Must post form data to 'home/create' -->
+            <form action="home/create" method="POST" class="form-horizontal" role="form">
+                <div class="form-group">
+                    <input type="email" name="email" class="form-control" placeholder="email" required="required">
+                </div>
+                <div class="form-group">
+                    <textarea type="text" name="bweet" class="form-control" placeholder="bweet" required="required"></textarea>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary btn-block btn-sm">Bweet!</button>
+                </div>
+            </form>
             <hr>
-            <!-- TODO -->
-            <!-- Loop through $bweets -->
-            <!-- Create Markup for a bweet -->
+            <?php foreach ($bweets as $bweet) { ?>
+            <div class="row">
+                <div class="well">
+                    <p><?php echo $bweet->bweet; ?></p>
+                    <hr>
+                    <p class="label label-warning"><?php echo $bweet->email; ?></p>
+                </div>
+            </div>
+            <?php } ?>
         </div>
     </div>
 </div>
