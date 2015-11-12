@@ -24,4 +24,13 @@ class Home extends CI_Controller {
 		$this->load->view('home', $home_data);
 		$this->load->view('commons/footer');
 	}
+
+	public function create()
+	{
+		// TODO
+		// Insert Form Data into DB
+		// HINT
+		// Access Form Data from the globally accessible $POST_DATA
+		redirect('home','refresh');
+	}
 }
